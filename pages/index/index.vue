@@ -78,15 +78,14 @@
         </view>
       </view>
     </view>
-    <indexAlert></indexAlert>
-    <floatCall @click.native="callBox"></floatCall>
+    <floatMenu :level="1" @callBox="callBox"></floatMenu>
     <callBox v-if="isShowCallBox" @isCloseCallBox="isCloseCallBox"></callBox>
 	</view>
 </template>
 
 <script>
   import indexAlert from '@/pages/components/indexAlert.vue'
-  import floatCall from '@/pages/components/floatCall.vue'
+  import floatMenu from '@/pages/components/floatMenu.vue'
   import callBox from '@/pages/components/callBox.vue'
   import topTitle from '@/pages/components/top_title.vue'
   
@@ -99,7 +98,7 @@
 	export default {
     components: {
       indexAlert,
-      floatCall,
+      floatMenu,
       callBox,
       topTitle
     },

@@ -1,30 +1,49 @@
 <template>
   <view class="float_menu">
-    <view class="float_menu_bg" @click="goHome">
-      <image src="/static/img/home.png" class="icon" mode="widthFix"></image>
-    </view>
-    <view class="title" style="margin-bottom: 1vw;" @click="goHome">
-      返回首页
-    </view>
-    <view class="float_menu_bg" @click="goReturn">
-      <image src="/static/img/fh.png" class="icon" mode="widthFix"></image>
-    </view>
-    <view class="title" @click="goReturn">
-      返回
-    </view>
+    <div @click="callClick">
+      <view class="float_menu_bg">
+        <image src="/static/img/left_gif_1.gif" class="icon" style="width: 3vw;" mode="widthFix"></image>
+      </view>
+      <view class="title" style="margin-bottom: 1vw;">
+        呼叫<br>
+        大堂经理
+      </view>
+    </div>
+    <div v-if="level != 1">
+      <view class="float_menu_bg" @click="goHome">
+        <image src="/static/img/home.png" class="icon" mode="widthFix"></image>
+      </view>
+      <view class="title" style="margin-bottom: 1vw;" @click="goHome">
+        返回首页
+      </view>
+    </div>
+    <div v-if="level === 3">
+      <view class="float_menu_bg" @click="goReturn">
+        <image src="/static/img/fh.png" class="icon" mode="widthFix"></image>
+      </view>
+      <view class="title" @click="goReturn">
+        返回
+      </view>
+    </div>
+    
   </view>
 </template>
 
 <script>
 export default {
+  props: {
+    level: {
+      type: Number
+    }
+  },
   name: 'float_menu',
   data () {
     return {
-      
+      levelType: null
     }
   },
   mounted(){
-    
+
   },
   methods: {
 		goHome(){
@@ -36,6 +55,9 @@ export default {
       uni.navigateBack({
         delta: 1
       })
+    },
+    callClick(){
+      this.$emit("callBox")
     }
   }
 }

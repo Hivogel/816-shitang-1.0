@@ -143,16 +143,15 @@
       </view>
       <image @click="closeAlert" src="/static/img/discounts/close_icon0.png" class="close_icon" mode=""></image>
     </view>
-    <floatMenu></floatMenu>
+    <floatMenu :level="3" @callBox="callBox"></floatMenu>
     <indexAlert></indexAlert>
-    <floatCall @click.native="callBox"></floatCall>
     <callBox v-if="isShowCallBox" @isCloseCallBox="isCloseCallBox"></callBox>
 	</view>
 </template>
 
 <script>
   import indexAlert from '@/pages/components/indexAlert.vue'
-  import floatCall from '@/pages/components/floatCall.vue'
+  import floatMenu from '@/pages/components/floatMenu.vue'
   import callBox from '@/pages/components/callBox.vue'
   import topTitle from '@/pages/components/top_title.vue'
   
@@ -169,14 +168,12 @@
   const img5 = "/static/img/discounts/img5.png";
   const img6 = "/static/img/discounts/img6.png";
   
-  import floatMenu from '@/pages/components/floatMenu.vue'
 	export default {
     components: {
       indexAlert,
-      floatCall,
+      floatMenu,
       callBox,
       topTitle,
-      floatMenu
     },
 		data() {
 			return {
